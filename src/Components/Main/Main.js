@@ -1,9 +1,11 @@
-import React from "react"
 import styled from "styled-components"
-const MainContainer = styled.main`
+export const Container = styled.main`
   grid-area: Main;
 `
-const Main = () => {
-  return <MainContainer>Product list</MainContainer>
-}
-export default Main
+export const Content = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+export const MainContainer = styled.div`
+  flex: 3 60rem;
+`
