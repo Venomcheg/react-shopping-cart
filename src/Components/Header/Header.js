@@ -1,7 +1,6 @@
-import React from "react"
 import styled from "styled-components"
 
-const HeaderContainer = styled.header`
+export const Container = styled.header`
   display: flex;
   align-items: center;
   grid-area: Header;
@@ -11,15 +10,3 @@ const HeaderContainer = styled.header`
     text-decoration: none;
   }
 `
-
-const Header = () => {
-  return (
-    <HeaderContainer>
-      <a className="link" href="/">
-        React Shopping Cart
-      </a>
-    </HeaderContainer>
-  )
-}
-
-export default Header

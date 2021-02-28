@@ -1,27 +1,29 @@
 import styled, { createGlobalStyle } from "styled-components"
-
 export const GlobalStyles = createGlobalStyle`
 *,*:before, *:after{
+	
 	box-sizing:border-box;
 }
-
+body,#root {
+	height: 100vh;
+	margin:0;
+}
 html {
 	font-size: 62.5%;
 }
-body,input,select,textarea {
+body,input,select,textarea,button {
 	font-size:1.6rem;
-	font-family: Helvetica, Arial, sans-serif,
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
-html, body, #root {
+body, #root {
 	margin: 0;
 	height: 100%;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+
 	 background-color: #fff;
 	 color: #333333;
 }
 a {
+	text-decoration:none;
 	color: #fff;
 	&:hover {
 color: #ff8000;
