@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
-export const Container = styled.div``
+export const Container = styled.div`
+padding-bottom: 1rem;
+`
 export const EmptyCart = styled.div``
 export const Item = styled.div``
 export const Wrapper = styled.div`
-  padding: 1rem;
-  margin: 1rem;
   display: flex;
   flex-direction:column;
   &:first-child {
