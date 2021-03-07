@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Container, EmptyCart, Item, List, Wrapper, Total, Proceed } from "./carts"
 import Cart from "./cart"
 import formatCurrency from "../../../../util";
+import Fade from "react-reveal/Fade";
 
 export default class Carts extends Component {
 
@@ -18,17 +19,16 @@ export default class Carts extends Component {
           )}
         </Wrapper>
         <Wrapper>
-          <List>
-            {cartItems.map((item) => {
-              return (
-                <Cart
-                  key={cartItems._id}
-                  {...item}
-                  removeItem={this.props.removeItem}
-                ></Cart>
-              )
-            })}
-          </List>
+                <List>
+                    {cartItems.map((item,index) =>
+                            <Cart
+                                delay={index+1}
+                                key={cartItems._id}
+                                {...item}
+                                removeItem={this.props.removeItem}
+                            />
+                        )}
+                </List>
             {cartItems.length > 0 &&
             <Total>
                 <div>

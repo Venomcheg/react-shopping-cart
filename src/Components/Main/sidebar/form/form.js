@@ -1,7 +1,9 @@
 import styled from "styled-components";
-
+import {showComponent} from '../../../../global-styles'
 export const Container = styled.div`
+position: relative;
 display: flex;
+animation: ${showComponent('translateX(100px)', 'translateX(0px)')} .5s ease-in-out;
 `
 export const Window = styled.form`
 width: 100%;

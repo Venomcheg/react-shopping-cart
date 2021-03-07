@@ -4,7 +4,7 @@ import { Container, Remove, Right } from "./cart"
 
 const Cart = (props) => {
   return (
-    <Container>
+    <Container delay={props.delay}>
       <div>
         <img src={props.image} alt={props.title} />
       </div>

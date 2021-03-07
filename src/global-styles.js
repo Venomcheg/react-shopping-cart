@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components"
+import styled, {createGlobalStyle, keyframes} from "styled-components"
 export const Wrapper = styled.div`
   display: grid;
   grid-template-areas: "Header" "Main" "Footer";
@@ -6,6 +6,16 @@ export const Wrapper = styled.div`
   grid-template-columns: 1fr;
   height: 100%;
 `
+export const showComponent = (unit1, unit2) => {return keyframes`
+from {
+opacity: 0;
+transform: ${unit1};
+}
+to {
+opacity: 1;
+transform: ${unit2};
+}
+`}
 export const GlobalStyles = createGlobalStyle`
 *,*:before, *:after{
 	
