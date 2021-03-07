@@ -9,13 +9,8 @@ const Main = (props) => {
       <Content>
         <MainContainer>
           <Filter
-            count={props.addProducts}
-            size={props.size}
-            sort={props.sort}
-            filterProducts={props.filterProducts}
-            sortProducts={props.sortProducts}
           />
-          <Products products={props.products} addProducts={props.addProducts} />
+          <Products addProducts={props.addProducts} />
         </MainContainer>
         <Sidebar cartItems={props.cartItems} removeItem={props.removeItem} getForm={props.getForm} createOrder={props.createOrder}/>
       </Content>
