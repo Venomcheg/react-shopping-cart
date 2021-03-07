@@ -4,8 +4,10 @@ import Cart from "./cart"
 import formatCurrency from "../../../../util";
 
 export default class Carts extends Component {
+
   render() {
     const { cartItems } = this.props
+
     return (
       <Container>
         <Wrapper>
@@ -33,7 +35,7 @@ export default class Carts extends Component {
                     Total: {" "}
                     {formatCurrency(cartItems.reduce((a,c) => a + c.price * c.count,0))}
                 </div>
-                <Proceed>
+                <Proceed onClick={this.props.openForm}>
                     Proceed
                 </Proceed>
             </Total>

@@ -17,7 +17,7 @@ const Main = (props) => {
           />
           <Products products={props.products} addProducts={props.addProducts} />
         </MainContainer>
-        <Sidebar cartItems={props.cartItems} removeItem={props.removeItem} />
+        <Sidebar cartItems={props.cartItems} removeItem={props.removeItem} getForm={props.getForm} createOrder={props.createOrder}/>
       </Content>
     </Container>
   )

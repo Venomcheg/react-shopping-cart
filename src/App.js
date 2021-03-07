@@ -11,7 +11,15 @@ class App extends React.Component {
     products: data.products,
     size: "" ,
     sort: "",
-    cartItems: [],
+    cartItems: JSON.parse(localStorage.getItem("cartItems")) ? JSON.parse(localStorage.getItem("cartItems")) : [],
+    showForm: false
+  }
+  createOrder = (order) => {
+    console.log(order)
+  }
+  getForm = () => {
+    const changeFormState = !this.state.showForm
+    this.setState({showForm: changeFormState })
   }
   sortProducts = (event) => {
     const sort = event.target.value
@@ -55,11 +63,13 @@ class App extends React.Component {
       cartItems.push({ ...product, count: 1 })
     }
     this.setState({ cartItems })
+    localStorage.setItem('cartItems',JSON.stringify(cartItems))
   }
   removeItem = (product) => {
     const cartItems = this.state.cartItems.slice()
     const newArray = cartItems.filter(item => item._id != product._id)
     this.setState({cartItems: newArray})
+    localStorage.setItem('cartItems', JSON.stringify(newArray))
   }
 
   render() {
@@ -74,6 +84,8 @@ class App extends React.Component {
               sortProducts={this.sortProducts}
               addProducts={this.addProducts}
               removeItem={this.removeItem}
+              getForm={this.getForm}
+              createOrder={this.createOrder}
           />
           <Footer />
         </Wrapper>
