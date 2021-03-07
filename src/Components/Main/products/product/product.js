@@ -1,5 +1,5 @@
-import styled from "styled-components"
-
+import styled, {keyframes} from "styled-components"
+import {showComponent} from '../../../../global-styles'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,10 +11,12 @@ export const Container = styled.div`
   }
 `
 export const Wrapper = styled.li`
+position:relative;
   flex: 0 1 29rem;
   height: 47rem;
   padding: 1rem;
   margin-bottom: 1rem;
+  animation: ${showComponent('translateY(100vh)', 'translateY(0)')} ${props => (props.delay*0.2)+1}s ease-in-out;
 `
 export const PrimaryButton = styled.button`
   padding: 1rem;
