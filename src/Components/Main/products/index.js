@@ -8,7 +8,13 @@ export default class Products extends Component {
       <Container>
         <List>
           {this.props.products.map((item) => {
-            return <Product key={item.id} {...item} />
+            return (
+              <Product
+                key={item.id}
+                product={item}
+                addProducts={this.props.addProducts}
+              />
+            )
           })}
         </List>
       </Container>

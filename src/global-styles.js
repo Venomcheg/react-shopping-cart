@@ -1,4 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components"
+export const Wrapper = styled.div`
+  display: grid;
+  grid-template-areas: "Header" "Main" "Footer";
+  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-columns: 1fr;
+  height: 100%;
+`
 export const GlobalStyles = createGlobalStyle`
 *,*:before, *:after{
 	
@@ -29,11 +36,4 @@ a {
 color: #ff8000;
 	}
 }
-`
-export const Wrapper = styled.div`
-  display: grid;
-  grid-template-areas: "Header" "Main" "Footer";
-  grid-template-rows: 5rem 1fr 5rem;
-  grid-template-columns: 1fr;
-  height: 100%;
 `
