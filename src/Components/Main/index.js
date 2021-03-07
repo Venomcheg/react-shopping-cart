@@ -9,15 +9,15 @@ const Main = (props) => {
       <Content>
         <MainContainer>
           <Filter
-            count={props.products.length}
+            count={props.addProducts}
             size={props.size}
             sort={props.sort}
             filterProducts={props.filterProducts}
             sortProducts={props.sortProducts}
           />
-          <Products products={props.products} />
+          <Products products={props.products} addProducts={props.addProducts} />
         </MainContainer>
-        <Sidebar />
+        <Sidebar cartItems={props.cartItems} removeItem={props.removeItem} />
       </Content>
     </Container>
   )

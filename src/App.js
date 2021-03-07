@@ -9,8 +9,9 @@ import data from "./data.json"
 class App extends React.Component {
   state = {
     products: data.products,
-    size: "",
+    size: "" ,
     sort: "",
+    cartItems: [],
   }
   sortProducts = (event) => {
     const sort = event.target.value
@@ -19,11 +20,7 @@ class App extends React.Component {
       products: state.products
         .slice()
         .sort((a, b) =>
-          sort === "lowest"
-            ? a.price > b.price
-              ? 1
-              : -1
-            : sort === "highest"
+          sort === "lowest" ? a.price > b.price ? 1 : -1 : sort === "highest"
             ? a.price < b.price
               ? 1
               : -1
@@ -45,6 +42,26 @@ class App extends React.Component {
       })
     }
   }
+  addProducts = (product) => {
+    const cartItems = this.state.cartItems.slice()
+    let alreadyInCart = false
+    cartItems.forEach((item) => {
+      if (item._id === product._id) {
+        item.count++
+        alreadyInCart = true
+      }
+    })
+    if (!alreadyInCart) {
+      cartItems.push({ ...product, count: 1 })
+    }
+    this.setState({ cartItems })
+  }
+  removeItem = (product) => {
+    const cartItems = this.state.cartItems.slice()
+    const newArray = cartItems.filter(item => item._id != product._id)
+    this.setState({cartItems: newArray})
+  }
+
   render() {
     return (
       <>
@@ -52,9 +69,11 @@ class App extends React.Component {
         <Wrapper>
           <Header />
           <Main
-            {...this.state}
-            filterProducts={this.filterProducts}
-            sortProducts={this.sortProducts}
+              {...this.state}
+              filterProducts={this.filterProducts}
+              sortProducts={this.sortProducts}
+              addProducts={this.addProducts}
+              removeItem={this.removeItem}
           />
           <Footer />
         </Wrapper>
