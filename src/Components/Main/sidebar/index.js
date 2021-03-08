@@ -13,9 +13,8 @@ class Sidebar extends React.Component {
     render() {
         return (
             <Container>
-                <Carts openForm={this.openForm} cartItems={this.props.cartItems}
-                       removeItem={this.props.removeItem}></Carts>
-                <Form formOpen={this.state.formOpen} cartItems={this.props.cartItems} createOrder={this.props.createOrder}/>
+                <Carts></Carts>
+                <Form formOpen={this.state.formOpen}/>
             </Container>
         )
     }

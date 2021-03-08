@@ -1,7 +1,6 @@
 import React from "react"
 import formatCurrency from "../../../../util"
 import { Container, Link, Price, PrimaryButton, Wrapper } from "./product"
-import Modal from 'react-modal'
 
 const Product = (props) => {
 
@@ -15,7 +14,7 @@ const Product = (props) => {
         </Link>
         <Price>
           <div>{formatCurrency(price)}</div>
-          <PrimaryButton onClick={() => props.addProducts(props.product)}>
+          <PrimaryButton onClick={() => props.addToCart(props.product)}>
             Add To Cart
           </PrimaryButton>
         </Price>

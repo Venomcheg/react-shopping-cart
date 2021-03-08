@@ -1,18 +1,20 @@
 import React from "react"
 import formatCurrency from "../../../../../util"
 import { Container, Remove, Right } from "./cart"
+import {removeFromCart} from "../../../../../actions/cartActions";
 
 const Cart = (props) => {
+
   return (
     <Container delay={props.delay}>
       <div>
-        <img src={props.image} alt={props.title} />
+        <img src={props.product.image} alt={props.product.title} />
       </div>
       <div>
-        <div>{props.title}</div>
+        <div>{props.product.title}</div>
         <Right>
-          {formatCurrency(props.price)} X {props.count}{" "}
-          <Remove onClick={() => props.removeItem(props)}>Remove</Remove>
+          {formatCurrency(props.product.price)} X {props.product.count}{" "}
+          <Remove onClick={() => props.removeFromCart(props.product)}>Remove</Remove>
         </Right>
       </div>
     </Container>
