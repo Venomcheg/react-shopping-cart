@@ -5,6 +5,7 @@ import Modal from 'react-modal'
 import ModalContainer from "./product/modal";
 import {connect} from "react-redux";
 import {fetchActions} from "../../../actions/productActions";
+import {addToCart} from '../../../actions/cartActions'
 
 
 class Products extends Component {
@@ -33,8 +34,9 @@ class Products extends Component {
                                 delay={index + 1}
                                 key={item.id}
                                 product={item}
-                                addProducts={this.props.addProducts}
+                                addToCart={this.props.addToCart}
                                 openModal={this.openModal}
+                                products={this.props.products}
                             />
                         }
                     )
@@ -52,5 +54,8 @@ class Products extends Component {
         )
     }
 }
+const mapStateToProps = (state) => ({
 
-export default connect((state) => ({products: state.products.filteredItems}), {fetchActions})(Products)
+    products: state.products.filteredItems
+})
+export default connect(mapStateToProps, {fetchActions, addToCart})(Products)

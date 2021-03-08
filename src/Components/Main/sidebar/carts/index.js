@@ -2,9 +2,11 @@ import React, { Component } from "react"
 import { Container, EmptyCart, Item, List, Wrapper, Total, Proceed } from "./carts"
 import Cart from "./cart"
 import formatCurrency from "../../../../util";
-import Fade from "react-reveal/Fade";
+import {connect} from "react-redux";
+import {addToCart, removeFromCart} from "../../../../actions/cartActions";
 
-export default class Carts extends Component {
+
+class Carts extends Component {
 
   render() {
     const { cartItems } = this.props
@@ -24,8 +26,8 @@ export default class Carts extends Component {
                             <Cart
                                 delay={index+1}
                                 key={cartItems._id}
-                                {...item}
-                                removeItem={this.props.removeItem}
+                                product={item}
+                                removeFromCart={this.props.removeFromCart}
                             />
                         )}
                 </List>
@@ -40,10 +42,15 @@ export default class Carts extends Component {
                 </Proceed>
             </Total>
             }
-
-
         </Wrapper>
       </Container>
     )
   }
 }
+const mapStateToProps = (state) => {
+    return {
+        cartItems: state.cart.cartItems
+    }
+}
+
+export default connect(mapStateToProps, {addToCart, removeFromCart})(Carts)
