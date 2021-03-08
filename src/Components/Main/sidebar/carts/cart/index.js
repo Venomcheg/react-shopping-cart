@@ -1,7 +1,6 @@
 import React from "react"
 import formatCurrency from "../../../../../util"
 import { Container, Remove, Right } from "./cart"
-import {removeFromCart} from "../../../../../actions/cartActions";
 
 const Cart = (props) => {
 
